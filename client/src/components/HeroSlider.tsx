@@ -67,7 +67,7 @@ const HeroSlider = () => {
         >
           {slides.map((slide, index) => (
             <div key={slide.id} className="slider-slide w-full flex-none">
-              <div className="aspect-[16/9] w-full relative">
+              <div className="aspect-[2/1] md:aspect-[16/5] w-full relative">
                 <img 
                   src={slide.image}
                   alt={slide.alt}
@@ -76,19 +76,13 @@ const HeroSlider = () => {
                 />
                 <div className="absolute inset-0 bg-hero-overlay"></div>
                 <div className="absolute inset-0 flex items-center justify-center text-center p-4">
-                  <div className="max-w-4xl animate-slide-in">
-                    <h1 className="text-4xl md:text-6xl font-bold font-headline text-white mb-6 drop-shadow-lg" data-testid={`slide-title-${index}`}>
+                  <div className="max-w-3xl animate-slide-in">
+                    <h1 className="text-2xl md:text-4xl font-bold font-headline text-white mb-3 drop-shadow-lg" data-testid={`slide-title-${index}`}>
                       {slide.title}
                     </h1>
-                    <p className="text-lg md:text-xl text-gray-200 mb-8 drop-shadow-md max-w-2xl mx-auto" data-testid={`slide-description-${index}`}>
+                    <p className="text-sm md:text-lg text-gray-200 drop-shadow-md max-w-xl mx-auto" data-testid={`slide-description-${index}`}>
                       {slide.description}
                     </p>
-                    <button 
-                      className="bg-gradient-purple-pink hover:opacity-90 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 text-lg"
-                      data-testid={`slide-button-${index}`}
-                    >
-                      {slide.buttonText}
-                    </button>
                   </div>
                 </div>
               </div>

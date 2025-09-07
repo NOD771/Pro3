@@ -83,42 +83,96 @@ const ToolsSection = () => {
               className="flex-shrink-0 basis-1/4 sm:basis-1/5 md:basis-1/6 lg:basis-[12.5%] pr-1"
               data-testid={`tool-card-${tool.id}`}
             >
-              <div className="group relative cursor-pointer h-full">
-                {/* Outer Container with Gradient Border */}
+              <div 
+                className="group relative cursor-pointer h-full transform-gpu perspective-1000"
+                style={{
+                  transform: 'rotateX(2deg) rotateY(-2deg)',
+                  transformStyle: 'preserve-3d'
+                }}
+              >
+                {/* Outer Container with Enhanced Gradient Border & Glow */}
                 <div 
                   className="absolute inset-0 bg-gradient-to-br from-[hsla(253,100%,72%,0.2)] to-transparent group-hover:from-[hsla(253,100%,72%,0.4)] transition-all duration-100"
-                  style={{ borderRadius: '0.75rem' }}
+                  style={{ 
+                    borderRadius: '0.75rem',
+                    boxShadow: '0 0 10px hsla(253, 100%, 72%, 0.1), 0 4px 20px rgba(0, 0, 0, 0.3)',
+                    filter: 'drop-shadow(0 0 8px hsla(253, 100%, 72%, 0.15))'
+                  }}
                 ></div>
                 
-                {/* Inner Container */}
+                {/* Enhanced Glow on Hover */}
                 <div 
-                  className="relative p-2 text-center space-y-1 h-full flex flex-col items-center justify-center transform group-hover:-translate-y-0.5 transition-all duration-100 m-0.5"
+                  className="absolute inset-0 bg-gradient-to-br from-[hsla(253,100%,72%,0.1)] to-transparent opacity-0 group-hover:opacity-100 transition-all duration-200 blur-sm"
+                  style={{ 
+                    borderRadius: '0.75rem',
+                    transform: 'scale(1.1)'
+                  }}
+                ></div>
+                
+                {/* Inner Container with Enhanced 3D */}
+                <div 
+                  className="relative p-2 text-center space-y-1 h-full flex flex-col items-center justify-center transform group-hover:-translate-y-1 group-hover:rotate-1 transition-all duration-200 m-0.5"
                   style={{ 
                     borderRadius: '0.5rem',
                     backgroundColor: 'hsl(240, 10%, 7%)',
-                    background: 'linear-gradient(135deg, hsl(240, 10%, 8%) 0%, hsl(240, 10%, 6%) 100%)'
+                    background: 'linear-gradient(135deg, hsl(240, 10%, 9%) 0%, hsl(240, 10%, 5%) 100%)',
+                    boxShadow: `
+                      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                      inset 0 -1px 0 rgba(0, 0, 0, 0.5),
+                      0 2px 10px rgba(0, 0, 0, 0.4),
+                      0 8px 25px rgba(0, 0, 0, 0.3)
+                    `,
+                    transform: 'translateZ(10px)'
                   }}
                 >
-                  {/* Shiny overlay */}
+                  {/* Enhanced Shiny overlay */}
                   <div 
-                    className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-100"
+                    className="absolute inset-0 bg-gradient-to-br from-white/8 via-white/2 to-transparent opacity-70 group-hover:opacity-90 transition-all duration-200"
                     style={{ borderRadius: '0.5rem' }}
                   ></div>
                   
-                  {/* Icon Background (Circle) */}
+                  {/* Animated light sweep */}
                   <div 
-                    className="relative bg-primary/10 p-1.5 rounded-full group-hover:bg-primary/15 transition-all duration-100"
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-full group-hover:translate-x-full"
+                    style={{ 
+                      borderRadius: '0.5rem',
+                      animation: 'sweep 0.8s ease-out'
+                    }}
+                  ></div>
+                  
+                  {/* Enhanced Icon Background with Glow */}
+                  <div 
+                    className="relative bg-primary/10 p-1.5 rounded-full group-hover:bg-primary/20 transition-all duration-200 group-hover:scale-110"
                     style={{
-                      background: 'radial-gradient(circle at 30% 30%, hsla(253, 100%, 72%, 0.15), hsla(253, 100%, 72%, 0.08))',
-                      boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+                      background: 'radial-gradient(circle at 30% 30%, hsla(253, 100%, 72%, 0.25), hsla(253, 100%, 72%, 0.1))',
+                      boxShadow: `
+                        inset 0 1px 0 rgba(255, 255, 255, 0.15),
+                        inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+                        0 0 15px hsla(253, 100%, 72%, 0.3),
+                        0 2px 8px rgba(0, 0, 0, 0.2)
+                      `,
+                      transform: 'translateZ(5px)'
                     }}
                   >
-                    <div className="h-4 w-4 text-primary">
+                    {/* Icon Glow */}
+                    <div className="absolute inset-0 rounded-full bg-primary/5 blur-sm opacity-0 group-hover:opacity-100 transition-all duration-200"></div>
+                    <div 
+                      className="h-4 w-4 text-primary relative z-10 transition-all duration-200 group-hover:text-primary group-hover:drop-shadow-sm"
+                      style={{
+                        filter: 'drop-shadow(0 0 4px hsla(253, 100%, 72%, 0.5))'
+                      }}
+                    >
                       {tool.icon}
                     </div>
                   </div>
                   
-                  <h3 className="text-[10px] font-semibold text-foreground whitespace-nowrap relative z-10" data-testid={`tool-name-${tool.id}`}>
+                  <h3 
+                    className="text-[10px] font-semibold text-foreground whitespace-nowrap relative z-10 transition-all duration-200 group-hover:text-primary"
+                    style={{
+                      textShadow: '0 1px 2px rgba(0, 0, 0, 0.5), 0 0 8px hsla(253, 100%, 72%, 0.3)'
+                    }}
+                    data-testid={`tool-name-${tool.id}`}
+                  >
                     {tool.name}
                   </h3>
                 </div>

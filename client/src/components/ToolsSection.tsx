@@ -76,7 +76,7 @@ const ToolsSection = () => {
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-6"></div>
 
-        <div className="flex flex-nowrap gap-0.5 overflow-x-auto">
+        <div className="flex flex-nowrap gap-3 overflow-x-auto">
           {tools.map((tool) => (
             <div 
               key={tool.id}

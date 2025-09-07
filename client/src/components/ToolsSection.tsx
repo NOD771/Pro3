@@ -83,24 +83,46 @@ const ToolsSection = () => {
               className="flex-shrink-0 basis-1/4 sm:basis-1/5 md:basis-1/6 lg:basis-[12.5%] pr-1"
               data-testid={`tool-card-${tool.id}`}
             >
-              <a 
-                href="#" 
-                className="group block p-0.5 rounded-lg bg-gradient-to-br from-primary/20 via-transparent to-transparent hover:from-primary/40 transition-all duration-100 h-full"
-              >
+              <div className="group relative cursor-pointer h-full">
+                {/* Outer Container with Gradient Border */}
                 <div 
-                  className="bg-card-bg p-2 rounded-md text-center space-y-1 h-full flex flex-col items-center justify-center transform group-hover:-translate-y-0.5 transition-transform duration-100"
-                  style={{ backgroundColor: 'hsl(240, 10%, 7%)' }}
+                  className="absolute inset-0 bg-gradient-to-br from-[hsla(253,100%,72%,0.2)] to-transparent group-hover:from-[hsla(253,100%,72%,0.4)] transition-all duration-100"
+                  style={{ borderRadius: '0.75rem' }}
+                ></div>
+                
+                {/* Inner Container */}
+                <div 
+                  className="relative p-2 text-center space-y-1 h-full flex flex-col items-center justify-center transform group-hover:-translate-y-0.5 transition-all duration-100 m-0.5"
+                  style={{ 
+                    borderRadius: '0.5rem',
+                    backgroundColor: 'hsl(240, 10%, 7%)',
+                    background: 'linear-gradient(135deg, hsl(240, 10%, 8%) 0%, hsl(240, 10%, 6%) 100%)'
+                  }}
                 >
-                  <div className="bg-primary/10 p-1.5 rounded-full">
+                  {/* Shiny overlay */}
+                  <div 
+                    className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-100"
+                    style={{ borderRadius: '0.5rem' }}
+                  ></div>
+                  
+                  {/* Icon Background (Circle) */}
+                  <div 
+                    className="relative bg-primary/10 p-1.5 rounded-full group-hover:bg-primary/15 transition-all duration-100"
+                    style={{
+                      background: 'radial-gradient(circle at 30% 30%, hsla(253, 100%, 72%, 0.15), hsla(253, 100%, 72%, 0.08))',
+                      boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+                    }}
+                  >
                     <div className="h-4 w-4 text-primary">
                       {tool.icon}
                     </div>
                   </div>
-                  <h3 className="text-[10px] font-semibold text-foreground whitespace-nowrap" data-testid={`tool-name-${tool.id}`}>
+                  
+                  <h3 className="text-[10px] font-semibold text-foreground whitespace-nowrap relative z-10" data-testid={`tool-name-${tool.id}`}>
                     {tool.name}
                   </h3>
                 </div>
-              </a>
+              </div>
             </div>
           ))}
         </div>

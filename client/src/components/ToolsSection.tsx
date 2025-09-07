@@ -97,16 +97,28 @@ const ToolsSection = () => {
                 
                 {/* Inner Container */}
                 <div 
-                  className="relative bg-card border border-border/10 flex flex-col items-center justify-center h-full m-0.5 group-hover:-translate-y-0.5 transition-all duration-300"
-                  style={{ borderRadius: '0.5rem' }}
+                  className="relative border border-border/10 flex flex-col items-center justify-center h-full m-0.5 group-hover:-translate-y-0.5 transition-all duration-300"
+                  style={{ 
+                    borderRadius: '0.5rem',
+                    backgroundColor: 'hsl(240, 10%, 7%)'
+                  }}
                 >
                   {/* Icon Background (Circle) */}
-                  <div className="bg-primary/10 w-10 h-10 rounded-full flex items-center justify-center mb-1 group-hover:bg-primary/20 transition-all duration-300">
-                    <div className="scale-75">
+                  <div 
+                    className="w-10 h-10 rounded-full flex items-center justify-center mb-1 transition-all duration-300"
+                    style={{ 
+                      backgroundColor: 'hsla(253, 100%, 72%, 0.1)'
+                    }}
+                  >
+                    <div className="scale-75" style={{ color: 'hsl(253, 100%, 72%)' }}>
                       {tool.icon}
                     </div>
                   </div>
-                  <h3 className="font-bold text-foreground group-hover:text-primary transition-colors text-[9px] text-center leading-tight px-1" data-testid={`tool-name-${tool.id}`}>
+                  <h3 
+                    className="font-bold transition-colors text-[9px] text-center leading-tight px-1" 
+                    style={{ color: 'hsl(240, 5%, 90%)' }}
+                    data-testid={`tool-name-${tool.id}`}
+                  >
                     {tool.name}
                   </h3>
                 </div>

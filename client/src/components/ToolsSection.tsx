@@ -86,7 +86,7 @@ const ToolsSection = () => {
             {tools.map((tool) => (
               <div 
                 key={tool.id}
-                className="group relative cursor-pointer flex-shrink-0 w-20 h-20"
+                className="group relative cursor-pointer flex-shrink-0 w-32 h-40"
                 data-testid={`tool-card-${tool.id}`}
               >
                 {/* Outer Container with Gradient Border */}
@@ -105,17 +105,17 @@ const ToolsSection = () => {
                 >
                   {/* Icon Background (Circle) */}
                   <div 
-                    className="w-10 h-10 rounded-full flex items-center justify-center mb-1 transition-all duration-300"
+                    className="w-16 h-16 rounded-full flex items-center justify-center mb-3 transition-all duration-300"
                     style={{ 
                       backgroundColor: 'hsla(253, 100%, 72%, 0.1)'
                     }}
                   >
-                    <div className="scale-75" style={{ color: 'hsl(253, 100%, 72%)' }}>
+                    <div className="scale-100" style={{ color: 'hsl(253, 100%, 72%)' }}>
                       {tool.icon}
                     </div>
                   </div>
                   <h3 
-                    className="font-bold transition-colors text-[9px] text-center leading-tight px-1" 
+                    className="font-bold transition-colors text-xs text-center leading-tight px-2" 
                     style={{ color: 'hsl(240, 5%, 90%)' }}
                     data-testid={`tool-name-${tool.id}`}
                   >

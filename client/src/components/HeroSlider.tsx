@@ -200,11 +200,11 @@ const HeroSlider = () => {
       {/* Integrated Tools Section */}
       <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/60 to-transparent pt-16 pb-6 z-5">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-nowrap gap-1 overflow-x-auto">
+          <div className="flex flex-nowrap gap-0.5 overflow-x-auto">
             {tools.map((tool) => (
               <div 
                 key={tool.id}
-                className="flex-shrink-0 basis-1/4 sm:basis-1/5 md:basis-1/6 lg:basis-[12.5%] pr-1"
+                className="flex-shrink-0 basis-1/4 sm:basis-1/5 md:basis-1/6 lg:basis-[12.5%]"
                 data-testid={`tool-card-${tool.id}`}
               >
                 <div 

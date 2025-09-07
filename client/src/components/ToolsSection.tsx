@@ -76,11 +76,11 @@ const ToolsSection = () => {
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-6"></div>
 
-        <div className="flex flex-nowrap gap-1 overflow-x-auto">
+        <div className="flex flex-nowrap gap-0.5 overflow-x-auto">
           {tools.map((tool) => (
             <div 
               key={tool.id}
-              className="flex-shrink-0 basis-1/4 sm:basis-1/5 md:basis-1/6 lg:basis-[12.5%] pr-1"
+              className="flex-shrink-0 basis-1/4 sm:basis-1/5 md:basis-1/6 lg:basis-[12.5%]"
               data-testid={`tool-card-${tool.id}`}
             >
               <div 

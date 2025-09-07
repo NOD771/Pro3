@@ -79,33 +79,35 @@ const ToolsSection = () => {
   return (
     <section id="tools" className="py-16 bg-primary/5" data-testid="tools-section">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 animate-fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold font-headline text-foreground mb-4" data-testid="tools-title">
-            AI-Powered Tools
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="tools-description">
-            Explore our comprehensive suite of AI tools designed to enhance your creative workflow
-          </p>
-        </div>
+        <div className="mb-6"></div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 animate-slide-in">
-          {tools.map((tool) => (
-            <div 
-              key={tool.id}
-              className="group bg-card border border-border/50 rounded-xl p-6 hover:border-primary/30 hover:-translate-y-1 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 cursor-pointer"
-              data-testid={`tool-card-${tool.id}`}
-            >
-              <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                {tool.icon}
+        <div className="overflow-x-auto scrollbar-hide">
+          <div className="flex gap-2 pb-4 animate-slide-in" style={{ width: 'max-content' }}>
+            {tools.map((tool) => (
+              <div 
+                key={tool.id}
+                className="group relative bg-gradient-to-br from-card via-card to-primary/5 border border-border/50 rounded-2xl p-3 hover:from-primary/5 hover:via-primary/10 hover:to-primary/15 hover:border-primary/40 hover:-translate-y-2 hover:rotate-1 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/25 cursor-pointer flex-shrink-0 w-20 h-20 transform-gpu perspective-1000"
+                style={{
+                  transform: 'rotateX(5deg) rotateY(-5deg)',
+                  transformStyle: 'preserve-3d'
+                }}
+                data-testid={`tool-card-${tool.id}`}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="relative z-10 flex flex-col items-center justify-center h-full">
+                  <div className="bg-gradient-to-br from-primary/20 to-primary/10 w-6 h-6 rounded-xl flex items-center justify-center mb-1 group-hover:from-primary/30 group-hover:to-primary/20 group-hover:scale-110 transition-all duration-300 shadow-lg">
+                    <div className="scale-50">
+                      {tool.icon}
+                    </div>
+                  </div>
+                  <h3 className="font-bold text-foreground group-hover:text-primary transition-colors text-[10px] text-center leading-tight" data-testid={`tool-name-${tool.id}`}>
+                    {tool.name}
+                  </h3>
+                </div>
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-transparent via-transparent to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
-              <h3 className="font-semibold text-foreground mb-2 group-hover:text-primary transition-colors" data-testid={`tool-name-${tool.id}`}>
-                {tool.name}
-              </h3>
-              <p className="text-sm text-muted-foreground" data-testid={`tool-description-${tool.id}`}>
-                {tool.description}
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -67,7 +67,7 @@ const HeroSlider = () => {
         >
           {slides.map((slide, index) => (
             <div key={slide.id} className="slider-slide w-full flex-none">
-              <div className="aspect-[2/1] md:aspect-[16/5] w-full relative">
+              <div className="aspect-[3/1] md:aspect-[5/1] w-full relative">
                 <img 
                   src={slide.image}
                   alt={slide.alt}

@@ -1,7 +1,7 @@
 const tools = [
   {
     id: 1,
-    name: "Background Remover",
+    name: "BG Remover",
     description: "Remove backgrounds instantly",
     icon: (
       <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -24,27 +24,22 @@ const tools = [
   },
   {
     id: 3,
-    name: "Sketch Converter",
+    name: "Sketch",
     description: "Transform photos to sketches",
     icon: (
       <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path d="m17 3 4 4-6 6-4-4 6-6z"/>
-        <path d="m13 7 6 6"/>
-        <path d="M9 12 5 8l-2 2 4 4 2-2z"/>
+        <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
       </svg>
     )
   },
   {
     id: 4,
-    name: "Image Upscaler",
+    name: "Upscaler",
     description: "Enhance image resolution",
     icon: (
       <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path d="M21 15V6"/>
-        <path d="M21 21H3"/>
-        <path d="m3 6 6 6"/>
-        <path d="m9 12 6-6"/>
-        <path d="M12 3h9v9"/>
+        <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+        <path d="M18.37 3.63a2.12 2.12 0 0 1 3 3L12 16l-4 1 1-4Z"/>
       </svg>
     )
   },
@@ -67,9 +62,9 @@ const tools = [
     description: "Discover additional features",
     icon: (
       <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="1"/>
-        <circle cx="19" cy="12" r="1"/>
-        <circle cx="5" cy="12" r="1"/>
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M8 12h8"/>
+        <path d="M12 8v8"/>
       </svg>
     )
   }
@@ -81,50 +76,33 @@ const ToolsSection = () => {
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-6"></div>
 
-        <div className="overflow-x-auto scrollbar-hide">
-          <div className="flex gap-3 pb-4 animate-slide-in" style={{ width: 'max-content' }}>
-            {tools.map((tool) => (
-              <div 
-                key={tool.id}
-                className="group relative cursor-pointer flex-shrink-0 w-32 h-40"
-                data-testid={`tool-card-${tool.id}`}
+        <div className="flex flex-nowrap gap-1 overflow-x-auto">
+          {tools.map((tool) => (
+            <div 
+              key={tool.id}
+              className="flex-shrink-0 basis-1/4 sm:basis-1/5 md:basis-1/6 lg:basis-[12.5%] pr-1"
+              data-testid={`tool-card-${tool.id}`}
+            >
+              <a 
+                href="#" 
+                className="group block p-0.5 rounded-lg bg-gradient-to-br from-primary/20 via-transparent to-transparent hover:from-primary/40 transition-all duration-100 h-full"
               >
-                {/* Outer Container with Gradient Border */}
                 <div 
-                  className="absolute inset-0 rounded-xl bg-gradient-to-br from-[hsla(253,100%,72%,0.2)] to-transparent group-hover:from-[hsla(253,100%,72%,0.4)] transition-all duration-300"
-                  style={{ borderRadius: '0.75rem' }}
-                ></div>
-                
-                {/* Inner Container */}
-                <div 
-                  className="relative border border-border/10 flex flex-col items-center justify-center h-full m-0.5 group-hover:-translate-y-0.5 transition-all duration-300"
-                  style={{ 
-                    borderRadius: '0.5rem',
-                    backgroundColor: 'hsl(240, 10%, 7%)'
-                  }}
+                  className="bg-card-bg p-2 rounded-md text-center space-y-1 h-full flex flex-col items-center justify-center transform group-hover:-translate-y-0.5 transition-transform duration-100"
+                  style={{ backgroundColor: 'hsl(240, 10%, 7%)' }}
                 >
-                  {/* Icon Background (Circle) */}
-                  <div 
-                    className="w-16 h-16 rounded-full flex items-center justify-center mb-3 transition-all duration-300"
-                    style={{ 
-                      backgroundColor: 'hsla(253, 100%, 72%, 0.1)'
-                    }}
-                  >
-                    <div className="scale-100" style={{ color: 'hsl(253, 100%, 72%)' }}>
+                  <div className="bg-primary/10 p-1.5 rounded-full">
+                    <div className="h-4 w-4 text-primary">
                       {tool.icon}
                     </div>
                   </div>
-                  <h3 
-                    className="font-bold transition-colors text-xs text-center leading-tight px-2" 
-                    style={{ color: 'hsl(240, 5%, 90%)' }}
-                    data-testid={`tool-name-${tool.id}`}
-                  >
+                  <h3 className="text-[10px] font-semibold text-foreground whitespace-nowrap" data-testid={`tool-name-${tool.id}`}>
                     {tool.name}
                   </h3>
                 </div>
-              </div>
-            ))}
-          </div>
+              </a>
+            </div>
+          ))}
         </div>
       </div>
     </section>
